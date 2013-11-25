@@ -4,5 +4,10 @@
 *.war
 *.ear
 
+.idea
+*.iml
+
+*.log
+
 /.metadata
 /smali2java/bin
