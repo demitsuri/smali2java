@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 15:42:15 CET 2013
+ * Produced : Tue Nov 26 16:00:26 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -54,11 +54,13 @@ public interface Visitor
   public Object visit(Rule_dirEndField rule);
   public Object visit(Rule_dirEndLocal rule);
   public Object visit(Rule_dirEndMethod rule);
+  public Object visit(Rule_dirEndPackedSwitch rule);
   public Object visit(Rule_dirEndSubannotation rule);
   public Object visit(Rule_dirImplements rule);
   public Object visit(Rule_dirField rule);
   public Object visit(Rule_dirLocal rule);
   public Object visit(Rule_dirMethod rule);
+  public Object visit(Rule_dirPackedSwitch rule);
   public Object visit(Rule_dirRegisters rule);
   public Object visit(Rule_dirSubannotation rule);
   public Object visit(Rule_dirSuper rule);
@@ -83,6 +85,8 @@ public interface Visitor
   public Object visit(Rule_annotationVisibility rule);
   public Object visit(Rule_annotationBody rule);
   public Object visit(Rule_typesGroup rule);
+  public Object visit(Rule_methodPackedSwitch rule);
+  public Object visit(Rule_methodPackedSwitchBody rule);
   public Object visit(Rule_classField rule);
   public Object visit(Rule_classMethod rule);
   public Object visit(Rule_classConstructorName rule);

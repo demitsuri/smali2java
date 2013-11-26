@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 15:42:15 CET 2013
+ * Produced : Tue Nov 26 16:00:26 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -520,6 +520,18 @@ public class XmlDisplayer implements Visitor
     return null;
   }
 
+  public Object visit(Rule_dirEndPackedSwitch rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<dirEndPackedSwitch>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</dirEndPackedSwitch>");
+    terminal = false;
+    return null;
+  }
+
   public Object visit(Rule_dirEndSubannotation rule)
   {
     if (!terminal) System.out.println();
@@ -576,6 +588,18 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</dirMethod>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_dirPackedSwitch rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<dirPackedSwitch>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</dirPackedSwitch>");
     terminal = false;
     return null;
   }
@@ -864,6 +888,30 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</typesGroup>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodPackedSwitch rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodPackedSwitch>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodPackedSwitch>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodPackedSwitchBody rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodPackedSwitchBody>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodPackedSwitchBody>");
     terminal = false;
     return null;
   }

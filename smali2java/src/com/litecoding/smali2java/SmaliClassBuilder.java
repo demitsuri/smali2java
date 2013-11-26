@@ -26,6 +26,18 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 	}
 
 	@Override
+	public Object visit(Rule_dirEndPackedSwitch rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_dirPackedSwitch rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
 	public Object visit(Rule_smali rule) {
 		smaliClass = new SmaliClass();
 		buildClassByRules(rule.rules);
@@ -337,6 +349,18 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 
 	@Override
 	public Object visit(Rule_typesGroup rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_methodPackedSwitch rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_methodPackedSwitchBody rule)
 	{
 		throw new UnsupportedOperationException("Not yet implemented!");
 	}
