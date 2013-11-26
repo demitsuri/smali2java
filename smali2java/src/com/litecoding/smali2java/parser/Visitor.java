@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 14:53:05 CET 2013
+ * Produced : Tue Nov 26 14:57:26 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -74,6 +74,7 @@ public interface Visitor
   public Object visit(Rule_methodLine rule);
   public Object visit(Rule_methodRegisters rule);
   public Object visit(Rule_methodLocal rule);
+  public Object visit(Rule_methodCatch rule);
   public Object visit(Rule_annotation rule);
   public Object visit(Rule_annotationVisibility rule);
   public Object visit(Rule_annotationBody rule);

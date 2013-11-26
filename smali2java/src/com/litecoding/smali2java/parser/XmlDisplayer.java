@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 14:53:05 CET 2013
+ * Produced : Tue Nov 26 14:57:26 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -756,6 +756,18 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</methodLocal>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodCatch rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodCatch>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodCatch>");
     terminal = false;
     return null;
   }

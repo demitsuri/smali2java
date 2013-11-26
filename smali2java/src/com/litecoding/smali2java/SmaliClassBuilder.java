@@ -303,5 +303,11 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 	public Object visit(Rule_methodLocal rule) {
 		return rule.spelling;
 	}
-		
+
+	@Override
+	public Object visit(Rule_methodCatch rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
 }
