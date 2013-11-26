@@ -360,6 +360,12 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 	}
 
 	@Override
+	public Object visit(Rule_enclosingMethodType rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
 	public Object visit(Rule_methodPackedSwitch rule)
 	{
 		throw new UnsupportedOperationException("Not yet implemented!");

@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 17:19:00 CET 2013
+ * Produced : Tue Nov 26 17:25:44 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -177,7 +177,7 @@ final public class Rule_annotationBody extends Rule
                           int c3 = 0;
                           for (int i3 = 0; i3 < 1 && f3; i3++)
                           {
-                            rule = Rule_type.parse(context);
+                            rule = Rule_typesGroup.parse(context);
                             if ((f3 = rule != null))
                             {
                               e3.add(rule);
@@ -204,7 +204,7 @@ final public class Rule_annotationBody extends Rule
                           int c3 = 0;
                           for (int i3 = 0; i3 < 1 && f3; i3++)
                           {
-                            rule = Rule_typesGroup.parse(context);
+                            rule = Rule_enclosingMethodType.parse(context);
                             if ((f3 = rule != null))
                             {
                               e3.add(rule);
@@ -221,6 +221,21 @@ final public class Rule_annotationBody extends Rule
                     }
                     f2 = context.index > g2;
                     if (parsed) c2++;
+                  }
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Rule_optPadding.parse(context);
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
                   }
                   parsed = c2 == 1;
                 }

@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
- * Rule_methodPackedSwitchBody.java
+ * Rule_enclosingMethodType.java
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
@@ -12,9 +12,9 @@ package com.litecoding.smali2java.parser;
 
 import java.util.ArrayList;
 
-final public class Rule_methodPackedSwitchBody extends Rule
+final public class Rule_enclosingMethodType extends Rule
 {
-  private Rule_methodPackedSwitchBody(String spelling, ArrayList<Rule> rules)
+  private Rule_enclosingMethodType(String spelling, ArrayList<Rule> rules)
   {
     super(spelling, rules);
   }
@@ -24,9 +24,9 @@ final public class Rule_methodPackedSwitchBody extends Rule
     return visitor.visit(this);
   }
 
-  public static Rule_methodPackedSwitchBody parse(ParserContext context)
+  public static Rule_enclosingMethodType parse(ParserContext context)
   {
-    context.push("methodPackedSwitchBody");
+    context.push("enclosingMethodType");
 
     boolean parsed = true;
     int s0 = context.index;
@@ -43,9 +43,24 @@ final public class Rule_methodPackedSwitchBody extends Rule
         if (parsed)
         {
           boolean f1 = true;
+          int c1 = 0;
+          for (int i1 = 0; i1 < 1 && f1; i1++)
+          {
+            rule = Rule_type.parse(context);
+            if ((f1 = rule != null))
+            {
+              e1.add(rule);
+              c1++;
+            }
+          }
+          parsed = c1 == 1;
+        }
+        if (parsed)
+        {
+          boolean f1 = true;
           @SuppressWarnings("unused")
           int c1 = 0;
-          while (f1)
+          for (int i1 = 0; i1 < 1 && f1; i1++)
           {
             int g1 = context.index;
             parsed = false;
@@ -61,7 +76,37 @@ final public class Rule_methodPackedSwitchBody extends Rule
                   int c2 = 0;
                   for (int i2 = 0; i2 < 1 && f2; i2++)
                   {
-                    rule = Rule_label.parse(context);
+                    rule = Terminal_StringValue.parse(context, "->");
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
+                  }
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Rule_qualifier.parse(context);
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
+                  }
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Rule_classMethodProto.parse(context);
                     if ((f2 = rule != null))
                     {
                       e2.add(rule);
@@ -90,13 +135,13 @@ final public class Rule_methodPackedSwitchBody extends Rule
 
     rule = null;
     if (parsed)
-      rule = new Rule_methodPackedSwitchBody(context.text.substring(s0, context.index), e0);
+      rule = new Rule_enclosingMethodType(context.text.substring(s0, context.index), e0);
     else
       context.index = s0;
 
-    context.pop("methodPackedSwitchBody", parsed);
+    context.pop("enclosingMethodType", parsed);
 
-    return (Rule_methodPackedSwitchBody)rule;
+    return (Rule_enclosingMethodType)rule;
   }
 }
 
