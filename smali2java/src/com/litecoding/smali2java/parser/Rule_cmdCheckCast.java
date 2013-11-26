@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 15:34:25 CET 2013
+ * Produced : Tue Nov 26 15:38:10 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -121,7 +121,7 @@ final public class Rule_cmdCheckCast extends Rule
           int c1 = 0;
           for (int i1 = 0; i1 < 1 && f1; i1++)
           {
-            rule = Rule_smaliClassRef.parse(context);
+            rule = Rule_smaliTypeRef.parse(context);
             if ((f1 = rule != null))
             {
               e1.add(rule);
