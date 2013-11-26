@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
- * Rule_SP.java
+ * Rule_smaliTypeRef.java
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
@@ -12,9 +12,9 @@ package com.litecoding.smali2java.parser;
 
 import java.util.ArrayList;
 
-final public class Rule_SP extends Rule
+final public class Rule_smaliTypeRef extends Rule
 {
-  private Rule_SP(String spelling, ArrayList<Rule> rules)
+  private Rule_smaliTypeRef(String spelling, ArrayList<Rule> rules)
   {
     super(spelling, rules);
   }
@@ -24,9 +24,9 @@ final public class Rule_SP extends Rule
     return visitor.visit(this);
   }
 
-  public static Rule_SP parse(ParserContext context)
+  public static Rule_smaliTypeRef parse(ParserContext context)
   {
-    context.push("SP");
+    context.push("smaliTypeRef");
 
     boolean parsed = true;
     int s0 = context.index;
@@ -46,7 +46,7 @@ final public class Rule_SP extends Rule
           int c1 = 0;
           for (int i1 = 0; i1 < 1 && f1; i1++)
           {
-            rule = Terminal_NumericValue.parse(context, "%x20", "[\\x20]", 1);
+            rule = Rule_type.parse(context);
             if ((f1 = rule != null))
             {
               e1.add(rule);
@@ -64,13 +64,13 @@ final public class Rule_SP extends Rule
 
     rule = null;
     if (parsed)
-      rule = new Rule_SP(context.text.substring(s0, context.index), e0);
+      rule = new Rule_smaliTypeRef(context.text.substring(s0, context.index), e0);
     else
       context.index = s0;
 
-    context.pop("SP", parsed);
+    context.pop("smaliTypeRef", parsed);
 
-    return (Rule_SP)rule;
+    return (Rule_smaliTypeRef)rule;
   }
 }
 

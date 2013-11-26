@@ -103,6 +103,7 @@ label = optPadding codeLabel optPadding [commentSequence] CRLF;
 
 smaliConstructorName = ("<init>" / "<clinit>");
 smaliClassRef = className;
+smaliTypeRef = type;
 smaliFieldRef = className "->" qualifier COLON type;
 smaliMethodRef = className "->" (smaliConstructorName / qualifier) classMethodProto;
 

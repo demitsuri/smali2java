@@ -249,6 +249,12 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 	}
 
 	@Override
+	public Object visit(Rule_smaliTypeRef rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
 	public Object visit(Rule_methodLocals rule) {		
 		for(Rule innerRule : rule.rules) {
 			if(innerRule instanceof Rule_intValue)

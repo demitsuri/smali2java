@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 14:53:05 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -151,7 +151,7 @@ final public class Rule_cmdNewArray extends Rule
           int c1 = 0;
           for (int i1 = 0; i1 < 1 && f1; i1++)
           {
-            rule = Rule_smaliClassRef.parse(context);
+            rule = Rule_smaliTypeRef.parse(context);
             if ((f1 = rule != null))
             {
               e1.add(rule);

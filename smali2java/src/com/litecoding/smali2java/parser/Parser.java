@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 14:53:05 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -233,6 +233,7 @@ public class Parser
     else if (rulename.equalsIgnoreCase("label")) rule = Rule_label.parse(context);
     else if (rulename.equalsIgnoreCase("smaliConstructorName")) rule = Rule_smaliConstructorName.parse(context);
     else if (rulename.equalsIgnoreCase("smaliClassRef")) rule = Rule_smaliClassRef.parse(context);
+    else if (rulename.equalsIgnoreCase("smaliTypeRef")) rule = Rule_smaliTypeRef.parse(context);
     else if (rulename.equalsIgnoreCase("smaliFieldRef")) rule = Rule_smaliFieldRef.parse(context);
     else if (rulename.equalsIgnoreCase("smaliMethodRef")) rule = Rule_smaliMethodRef.parse(context);
     else if (rulename.equalsIgnoreCase("HTAB")) rule = Rule_HTAB.parse(context);

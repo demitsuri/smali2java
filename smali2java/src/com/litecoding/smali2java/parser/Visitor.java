@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 14:53:05 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -85,6 +85,7 @@ public interface Visitor
   public Object visit(Rule_label rule);
   public Object visit(Rule_smaliConstructorName rule);
   public Object visit(Rule_smaliClassRef rule);
+  public Object visit(Rule_smaliTypeRef rule);
   public Object visit(Rule_smaliFieldRef rule);
   public Object visit(Rule_smaliMethodRef rule);
   public Object visit(Rule_HTAB rule);
