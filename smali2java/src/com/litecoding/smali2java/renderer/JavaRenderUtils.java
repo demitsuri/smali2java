@@ -32,9 +32,14 @@ public class JavaRenderUtils
 			return "float";
 		
 		if(smaliClassName.equals("D"))
-			return "double";		
-		
-		return smaliClassName.substring(1, smaliClassName.length() - 1).replaceAll("/", ".");
+			return "double";
+
+		String clazzName = smaliClassName.substring(1, smaliClassName.length() - 1).replaceAll("/", ".");
+		if ("java.lang.String".equals(clazzName) || "Ljava.lang.String".equals(clazzName))
+		{
+			clazzName = "String";
+		}
+		return clazzName;
 	}
 	
 	public static String renderShortJavaClassName(String smaliClassName)

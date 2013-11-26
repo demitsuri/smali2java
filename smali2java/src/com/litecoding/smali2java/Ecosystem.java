@@ -4,6 +4,7 @@ import com.litecoding.smali2java.entity.smali.SmaliClass;
 import com.litecoding.smali2java.parser.Parser;
 import com.litecoding.smali2java.parser.Rule;
 import com.litecoding.smali2java.renderer.ClassRenderer;
+import com.litecoding.smali2java.renderer.ClassRenderer_using_CodeModel;
 
 import java.io.*;
 import java.util.HashMap;
@@ -42,10 +43,26 @@ public class Ecosystem
 		SmaliClass smaliClass = (SmaliClass) classrule.accept(new SmaliClassBuilder());
 		classes.put(smaliClass.getClassName(), smaliClass);
 
-		String javaSource = ClassRenderer.renderObject(smaliClass);
+		// using "old" renderer
+		String javaSource = null;
+		try
+		{
+			javaSource = ClassRenderer.renderObject(smaliClass);
+			writeJavaSourceToFile(dst, javaSource);
+		} catch (IOException e)
+		{
+			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+		}
 
-		printSource(javaSource);
-		writeJavaSourceToFile(dst, javaSource);
+		// using "new" renderer, based on CodeModel
+		try
+		{
+			javaSource = new ClassRenderer_using_CodeModel().render(smaliClass);
+			writeJavaSourceToFile(dst + "_", javaSource);
+		} catch (IOException e)
+		{
+			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+		}
 	}
 
 	private String readSourceFile(File srcFile) throws IOException
@@ -61,11 +78,6 @@ public class Ecosystem
 		sb.append("\n"); //fix for the bug than .end method ends by EOF but not CRLF
 		reader.close();
 		return sb.toString();
-	}
-
-	private void printSource(String text)
-	{
-		System.out.println(text);
 	}
 
 	private void writeJavaSourceToFile(String dst, String javaSource) throws IOException
