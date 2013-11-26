@@ -46,6 +46,8 @@ codeRegister64 = codeRegisterP64 / codeRegisterV64;
 codeRegisterRet = codeRegisterP / codeRegisterV;
 codeRegisterRet64 = codeRegisterP64 / codeRegisterV64;
 codeRegisterGroup = "{" optPadding *(codeRegisterP / codeRegisterV) optPadding *(COMMA optPadding (codeRegisterP / codeRegisterV) optPadding) "}";
+## not sure what this mean 'codeRegisterRange', but it has a different syntax than codeRegisterGroup
+codeRegisterRange = "{" optPadding (codeRegisterP / codeRegisterV) optPadding ".." optPadding (codeRegisterP / codeRegisterV) optPadding "}";
 
 #####SMALI DIRECTIVE RULES#####
 dirAnnotation = ".annotation";

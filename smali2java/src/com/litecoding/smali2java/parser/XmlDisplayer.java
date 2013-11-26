@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 15:16:48 CET 2013
+ * Produced : Tue Nov 26 15:34:25 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -420,6 +420,18 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</codeRegisterGroup>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_codeRegisterRange rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<codeRegisterRange>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</codeRegisterRange>");
     terminal = false;
     return null;
   }

@@ -14,6 +14,12 @@ import com.litecoding.smali2java.parser.*;
 public class SmaliClassBuilder extends BasicCommandsBuilder {
 
 	@Override
+	public Object visit(Rule_codeRegisterRange rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
 	public Object visit(Rule_dirEndLocal rule)
 	{
 		throw new UnsupportedOperationException("Not yet implemented!");
