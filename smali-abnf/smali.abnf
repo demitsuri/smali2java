@@ -53,6 +53,7 @@ dirClass = ".class";
 dirEnd = ".end";
 dirEndAnnotation = dirEnd padding "annotation";
 dirEndField = dirEnd padding "field";
+dirEndLocal = dirEnd padding "local";
 dirEndMethod = dirEnd padding "method";
 dirEndSubannotation = dirEnd padding "subannotation";
 dirImplements = ".implements";
@@ -84,6 +85,7 @@ methodPrologue = optPadding ".prologue" optPadding CRLF;
 methodLine = optPadding ".line" padding intValue optPadding CRLF;
 methodRegisters = optPadding ".registers" padding intValue optPadding CRLF;
 methodLocal = optPadding ".local" padding todoStubLine CRLF;
+methodEndLocal = optPadding dirEndLocal padding todoStubLine CRLF;
 methodCatch = optPadding ".catch" padding smaliTypeRef padding "{" codeLabel padding ".." padding codeLabel "}" padding codeLabel CRLF;
 
 annotation = optPadding dirAnnotation padding annotationVisibility padding className optPadding CRLF [annotationBody] optPadding dirEndAnnotation optPadding CRLF;
@@ -98,7 +100,7 @@ classField = optPadding dirField padding *(accessMode padding) qualifier COLON t
 classMethod = optPadding dirMethod padding *(accessMode padding) (classConstructorName / qualifier) optPadding classMethodProto optPadding CRLF methodBody optPadding dirEndMethod optPadding CRLF;
 classConstructorName = "constructor" padding smaliConstructorName;
 classMethodProto = %x28 *type %x29 type;
-methodBody = *skipLine [methodLocals] *skipLine [methodRegisters] *(methodParam / annotation / skipLine) [methodPrologue] *(methodLine / methodLocal / methodCatch / cmdAny / label / skipLine);
+methodBody = *skipLine [methodLocals] *skipLine [methodRegisters] *(methodParam / annotation / skipLine) [methodPrologue] *(methodLine / methodLocal / methodEndLocal / methodCatch / cmdAny / label / skipLine);
 
 label = optPadding codeLabel optPadding [commentSequence] CRLF;
 

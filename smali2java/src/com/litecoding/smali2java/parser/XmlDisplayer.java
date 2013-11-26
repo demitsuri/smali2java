@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 15:00:17 CET 2013
+ * Produced : Tue Nov 26 15:04:27 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -484,6 +484,18 @@ public class XmlDisplayer implements Visitor
     return null;
   }
 
+  public Object visit(Rule_dirEndLocal rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<dirEndLocal>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</dirEndLocal>");
+    terminal = false;
+    return null;
+  }
+
   public Object visit(Rule_dirEndMethod rule)
   {
     if (!terminal) System.out.println();
@@ -756,6 +768,18 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</methodLocal>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodEndLocal rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodEndLocal>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodEndLocal>");
     terminal = false;
     return null;
   }

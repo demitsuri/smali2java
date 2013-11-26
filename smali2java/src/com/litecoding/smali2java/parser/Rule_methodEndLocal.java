@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------------------
- * Rule_cmdMoveResult.java
+ * Rule_methodEndLocal.java
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
@@ -12,9 +12,9 @@ package com.litecoding.smali2java.parser;
 
 import java.util.ArrayList;
 
-final public class Rule_cmdMoveResult extends Rule
+final public class Rule_methodEndLocal extends Rule
 {
-  private Rule_cmdMoveResult(String spelling, ArrayList<Rule> rules)
+  private Rule_methodEndLocal(String spelling, ArrayList<Rule> rules)
   {
     super(spelling, rules);
   }
@@ -24,9 +24,9 @@ final public class Rule_cmdMoveResult extends Rule
     return visitor.visit(this);
   }
 
-  public static Rule_cmdMoveResult parse(ParserContext context)
+  public static Rule_methodEndLocal parse(ParserContext context)
   {
-    context.push("cmdMoveResult");
+    context.push("methodEndLocal");
 
     boolean parsed = true;
     int s0 = context.index;
@@ -61,7 +61,7 @@ final public class Rule_cmdMoveResult extends Rule
           int c1 = 0;
           for (int i1 = 0; i1 < 1 && f1; i1++)
           {
-            rule = Terminal_StringValue.parse(context, "move-result");
+            rule = Rule_dirEndLocal.parse(context);
             if ((f1 = rule != null))
             {
               e1.add(rule);
@@ -91,7 +91,7 @@ final public class Rule_cmdMoveResult extends Rule
           int c1 = 0;
           for (int i1 = 0; i1 < 1 && f1; i1++)
           {
-            rule = Rule_codeRegisterVDst.parse(context);
+            rule = Rule_todoStubLine.parse(context);
             if ((f1 = rule != null))
             {
               e1.add(rule);
@@ -99,77 +99,6 @@ final public class Rule_cmdMoveResult extends Rule
             }
           }
           parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Rule_optPadding.parse(context);
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          @SuppressWarnings("unused")
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            int g1 = context.index;
-            parsed = false;
-            if (!parsed)
-            {
-              {
-                ArrayList<Rule> e2 = new ArrayList<Rule>();
-                int s2 = context.index;
-                parsed = true;
-                if (parsed)
-                {
-                  boolean f2 = true;
-                  int c2 = 0;
-                  for (int i2 = 0; i2 < 1 && f2; i2++)
-                  {
-                    rule = Rule_padding.parse(context);
-                    if ((f2 = rule != null))
-                    {
-                      e2.add(rule);
-                      c2++;
-                    }
-                  }
-                  parsed = c2 == 1;
-                }
-                if (parsed)
-                {
-                  boolean f2 = true;
-                  int c2 = 0;
-                  for (int i2 = 0; i2 < 1 && f2; i2++)
-                  {
-                    rule = Rule_commentSequence.parse(context);
-                    if ((f2 = rule != null))
-                    {
-                      e2.add(rule);
-                      c2++;
-                    }
-                  }
-                  parsed = c2 == 1;
-                }
-                if (parsed)
-                  e1.addAll(e2);
-                else
-                  context.index = s2;
-              }
-            }
-            f1 = context.index > g1;
-            if (parsed) c1++;
-          }
-          parsed = true;
         }
         if (parsed)
         {
@@ -195,13 +124,13 @@ final public class Rule_cmdMoveResult extends Rule
 
     rule = null;
     if (parsed)
-      rule = new Rule_cmdMoveResult(context.text.substring(s0, context.index), e0);
+      rule = new Rule_methodEndLocal(context.text.substring(s0, context.index), e0);
     else
       context.index = s0;
 
-    context.pop("cmdMoveResult", parsed);
+    context.pop("methodEndLocal", parsed);
 
-    return (Rule_cmdMoveResult)rule;
+    return (Rule_methodEndLocal)rule;
   }
 }
 
