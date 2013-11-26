@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 16:05:28 CET 2013
+ * Produced : Tue Nov 26 16:48:58 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -229,6 +229,7 @@ public class Parser
     else if (rulename.equalsIgnoreCase("methodRestart")) rule = Rule_methodRestart.parse(context);
     else if (rulename.equalsIgnoreCase("methodEndLocal")) rule = Rule_methodEndLocal.parse(context);
     else if (rulename.equalsIgnoreCase("methodCatch")) rule = Rule_methodCatch.parse(context);
+    else if (rulename.equalsIgnoreCase("methodCatchAll")) rule = Rule_methodCatchAll.parse(context);
     else if (rulename.equalsIgnoreCase("annotation")) rule = Rule_annotation.parse(context);
     else if (rulename.equalsIgnoreCase("annotationVisibility")) rule = Rule_annotationVisibility.parse(context);
     else if (rulename.equalsIgnoreCase("annotationBody")) rule = Rule_annotationBody.parse(context);

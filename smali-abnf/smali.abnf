@@ -92,6 +92,7 @@ methodLocal = optPadding ".local" padding todoStubLine CRLF;
 methodRestart = optPadding ".restart" padding todoStubLine CRLF;
 methodEndLocal = optPadding dirEndLocal padding todoStubLine CRLF;
 methodCatch = optPadding ".catch" padding smaliTypeRef padding "{" codeLabel padding ".." padding codeLabel "}" padding codeLabel CRLF;
+methodCatchAll = optPadding ".catchall" padding "{" codeLabel padding ".." padding codeLabel "}" padding codeLabel CRLF;
 
 annotation = optPadding dirAnnotation padding annotationVisibility padding className optPadding CRLF [annotationBody] optPadding dirEndAnnotation optPadding CRLF;
 annotationVisibility = "build" / "system" / "runtime";
@@ -101,6 +102,7 @@ typesGroup = "{" [optWidePadding type optPadding *(COMMA optWidePadding type opt
 methodPackedSwitch = optPadding dirPackedSwitch padding intValue optPadding CRLF [methodPackedSwitchBody] optPadding dirEndPackedSwitch optPadding CRLF;
 methodPackedSwitchBody = *(label);
 
+
 #####SMALI FIELD RULES#####
 classField = optPadding dirField padding *(accessMode padding) qualifier COLON type optPadding [EQ optPadding value] optPadding CRLF [dirEndField optPadding CRLF];
 
@@ -108,7 +110,7 @@ classField = optPadding dirField padding *(accessMode padding) qualifier COLON t
 classMethod = optPadding dirMethod padding *(accessMode padding) (classConstructorName / qualifier) optPadding classMethodProto optPadding CRLF methodBody optPadding dirEndMethod optPadding CRLF;
 classConstructorName = "constructor" padding smaliConstructorName;
 classMethodProto = %x28 *type %x29 type;
-methodBody = *skipLine [methodLocals] *skipLine [methodRegisters] *(methodParam / annotation / skipLine) [methodPrologue] *(methodLine / methodPackedSwitch / methodLocal / methodRestart / methodEndLocal / methodCatch / cmdAny / label / skipLine);
+methodBody = *skipLine [methodLocals] *skipLine [methodRegisters] *(methodParam / annotation / skipLine) [methodPrologue] *(methodLine / methodPackedSwitch / methodLocal / methodRestart / methodEndLocal / methodCatch / methodCatchAll / cmdAny / label / skipLine);
 
 label = optPadding codeLabel optPadding [commentSequence] CRLF;
 

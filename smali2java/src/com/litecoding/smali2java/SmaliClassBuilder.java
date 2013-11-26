@@ -348,6 +348,12 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 	}
 
 	@Override
+	public Object visit(Rule_methodCatchAll rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
 	public Object visit(Rule_typesGroup rule)
 	{
 		throw new UnsupportedOperationException("Not yet implemented!");
