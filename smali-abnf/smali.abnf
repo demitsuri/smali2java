@@ -97,8 +97,8 @@ methodCatchAll = optPadding ".catchall" padding "{" codeLabel padding ".." paddi
 
 annotation = optPadding dirAnnotation padding annotationVisibility padding className optPadding CRLF [annotationBody] optPadding dirEndAnnotation optPadding CRLF;
 annotationVisibility = "build" / "system" / "runtime";
-annotationBody = *(optPadding qualifier optPadding "=" optPadding (value / typesGroup / enclosingMethodType) optPadding CRLF);
-typesGroup = "{" [optWidePadding type optPadding *(COMMA optWidePadding type optWidePadding)] optWidePadding "}";
+annotationBody = *(optPadding qualifier optPadding "=" optPadding ( value / typesGroup / enclosingMethodType) optPadding CRLF);
+typesGroup = "{" [optWidePadding (type / value) optPadding *(COMMA optWidePadding (type / value) optWidePadding)] optWidePadding "}";
 enclosingMethodType = type ["->" qualifier classMethodProto];
 
 methodPackedSwitch = optPadding dirPackedSwitch padding intValue optPadding CRLF [methodPackedSwitchBody] optPadding dirEndPackedSwitch optPadding CRLF;
