@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 15:04:27 CET 2013
+ * Produced : Tue Nov 26 15:08:07 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -73,8 +73,9 @@ final public class Rule_codeRegisterGroup extends Rule
         if (parsed)
         {
           boolean f1 = true;
+          @SuppressWarnings("unused")
           int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
+          while (f1)
           {
             int g1 = context.index;
             parsed = false;
@@ -135,7 +136,7 @@ final public class Rule_codeRegisterGroup extends Rule
             f1 = context.index > g1;
             if (parsed) c1++;
           }
-          parsed = c1 == 1;
+          parsed = true;
         }
         if (parsed)
         {
