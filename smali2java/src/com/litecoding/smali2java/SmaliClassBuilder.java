@@ -312,6 +312,12 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 	}
 
 	@Override
+	public Object visit(Rule_methodRestart rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
 	public Object visit(Rule_methodEndLocal rule)
 	{
 		throw new UnsupportedOperationException("Not yet implemented!");
