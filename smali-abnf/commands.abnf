@@ -119,6 +119,7 @@ cmdAny =/ cmdMonitorEnter;
 cmdAny =/ cmdMonitorExit;
 cmdAny =/ cmdMove;
 cmdAny =/ cmdMove16;
+cmdAny =/ cmdMoveException;
 cmdAny =/ cmdMoveFrom16;
 cmdAny =/ cmdMoveObject;
 cmdAny =/ cmdMoveObject16;
