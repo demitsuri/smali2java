@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 15:14:41 CET 2013
+ * Produced : Tue Nov 26 15:16:48 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -840,6 +840,18 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</annotationBody>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_typesGroup rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<typesGroup>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</typesGroup>");
     terminal = false;
     return null;
   }

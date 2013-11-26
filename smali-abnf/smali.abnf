@@ -91,7 +91,8 @@ methodCatch = optPadding ".catch" padding smaliTypeRef padding "{" codeLabel pad
 
 annotation = optPadding dirAnnotation padding annotationVisibility padding className optPadding CRLF [annotationBody] optPadding dirEndAnnotation optPadding CRLF;
 annotationVisibility = "build" / "system" / "runtime";
-annotationBody = optPadding "value" optPadding "=" optWidePadding "{" [optWidePadding strValue optPadding *(COMMA optWidePadding strValue optWidePadding)] optWidePadding "}" optWidePadding;
+annotationBody = *(optPadding qualifier optPadding "=" optPadding (value / type / typesGroup) CRLF);
+typesGroup = "{" [optWidePadding type optPadding *(COMMA optWidePadding type optWidePadding)] optWidePadding "}";
 
 
 #####SMALI FIELD RULES#####
