@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 17:25:44 CET 2013
+ * Produced : Tue Nov 26 17:29:32 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -177,6 +177,7 @@ public class Parser
     else if (rulename.equalsIgnoreCase("interfaceMode")) rule = Rule_interfaceMode.parse(context);
     else if (rulename.equalsIgnoreCase("type")) rule = Rule_type.parse(context);
     else if (rulename.equalsIgnoreCase("boolValue")) rule = Rule_boolValue.parse(context);
+    else if (rulename.equalsIgnoreCase("nullValue")) rule = Rule_nullValue.parse(context);
     else if (rulename.equalsIgnoreCase("intDecValue")) rule = Rule_intDecValue.parse(context);
     else if (rulename.equalsIgnoreCase("intHexValue")) rule = Rule_intHexValue.parse(context);
     else if (rulename.equalsIgnoreCase("intValue")) rule = Rule_intValue.parse(context);

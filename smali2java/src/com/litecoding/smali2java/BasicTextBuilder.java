@@ -137,5 +137,4 @@ public abstract class BasicTextBuilder implements Visitor
 	{
 		return rule.spelling;
 	}
-	
 }

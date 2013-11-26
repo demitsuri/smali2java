@@ -29,11 +29,12 @@ accessMode = "public" / "private" / "protected" / "static" / "final" / "abstract
 interfaceMode = "interface";
 type = "V" / "Z" / "B" / "S" / "C" / "I" / "J" / "F" / "D" / className / "[" type;
 boolValue = "true" / "false";
+nullValue = "null";
 intDecValue = [%x2d] 1*DIGIT;
 intHexValue = [%x2d] %x30 %x78 1*HEXDIG;
 intValue = intHexValue / intDecValue;
 strValue = QUOT *escSymbol QUOT;
-value = boolValue / intValue / strValue;
+value = boolValue / intValue / strValue / nullValue;
 codeLabel = COLON qualifier;
 codeRegisterP = "p" intDecValue;
 codeRegisterP64 = "p" intDecValue;
@@ -96,8 +97,9 @@ methodCatchAll = optPadding ".catchall" padding "{" codeLabel padding ".." paddi
 
 annotation = optPadding dirAnnotation padding annotationVisibility padding className optPadding CRLF [annotationBody] optPadding dirEndAnnotation optPadding CRLF;
 annotationVisibility = "build" / "system" / "runtime";
-annotationBody = *(optPadding qualifier optPadding "=" optPadding (value / type / typesGroup) CRLF);
+annotationBody = *(optPadding qualifier optPadding "=" optPadding (value / typesGroup / enclosingMethodType) optPadding CRLF);
 typesGroup = "{" [optWidePadding type optPadding *(COMMA optWidePadding type optWidePadding)] optWidePadding "}";
+enclosingMethodType = type ["->" qualifier classMethodProto];
 
 methodPackedSwitch = optPadding dirPackedSwitch padding intValue optPadding CRLF [methodPackedSwitchBody] optPadding dirEndPackedSwitch optPadding CRLF;
 methodPackedSwitchBody = *(label);

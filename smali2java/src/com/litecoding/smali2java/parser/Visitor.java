@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 17:25:44 CET 2013
+ * Produced : Tue Nov 26 17:29:32 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -29,6 +29,7 @@ public interface Visitor
   public Object visit(Rule_interfaceMode rule);
   public Object visit(Rule_type rule);
   public Object visit(Rule_boolValue rule);
+  public Object visit(Rule_nullValue rule);
   public Object visit(Rule_intDecValue rule);
   public Object visit(Rule_intHexValue rule);
   public Object visit(Rule_intValue rule);
