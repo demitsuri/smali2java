@@ -1,26 +1,7 @@
 package com.litecoding.smali2java;
 
 
-import com.litecoding.smali2java.parser.Rule_ALPHA;
-import com.litecoding.smali2java.parser.Rule_COLON;
-import com.litecoding.smali2java.parser.Rule_COMMA;
-import com.litecoding.smali2java.parser.Rule_CR;
-import com.litecoding.smali2java.parser.Rule_CRLF;
-import com.litecoding.smali2java.parser.Rule_DIGIT;
-import com.litecoding.smali2java.parser.Rule_DOT;
-import com.litecoding.smali2java.parser.Rule_EQ;
-import com.litecoding.smali2java.parser.Rule_HASH;
-import com.litecoding.smali2java.parser.Rule_HEXDIG;
-import com.litecoding.smali2java.parser.Rule_HTAB;
-import com.litecoding.smali2java.parser.Rule_LF;
-import com.litecoding.smali2java.parser.Rule_QUOT;
-import com.litecoding.smali2java.parser.Rule_SEMICOLON;
-import com.litecoding.smali2java.parser.Rule_SP;
-import com.litecoding.smali2java.parser.Rule_UNDERSCORE;
-import com.litecoding.smali2java.parser.Rule_VCHAR;
-import com.litecoding.smali2java.parser.Terminal_NumericValue;
-import com.litecoding.smali2java.parser.Terminal_StringValue;
-import com.litecoding.smali2java.parser.Visitor;
+import com.litecoding.smali2java.parser.*;
 
 public abstract class BasicTextBuilder implements Visitor
 {
@@ -135,6 +116,24 @@ public abstract class BasicTextBuilder implements Visitor
 
 	@Override
 	public Object visit(Terminal_NumericValue rule)
+	{
+		return rule.spelling;
+	}
+
+	@Override
+	public Object visit(Rule_DOLLAR rule)
+	{
+		return rule.spelling;
+	}
+
+	@Override
+	public Object visit(Rule_PARENTHESES_OPEN rule)
+	{
+		return rule.spelling;
+	}
+
+	@Override
+	public Object visit(Rule_PARENTHESES_CLOSE rule)
 	{
 		return rule.spelling;
 	}

@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 16:54:48 CET 2013
+ * Produced : Tue Nov 26 17:19:00 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -116,6 +116,9 @@ public interface Visitor
   public Object visit(Rule_DIGIT rule);
   public Object visit(Rule_HEXDIG rule);
   public Object visit(Rule_VCHAR rule);
+  public Object visit(Rule_DOLLAR rule);
+  public Object visit(Rule_PARENTHESES_OPEN rule);
+  public Object visit(Rule_PARENTHESES_CLOSE rule);
   public Object visit(Rule_cmdAny rule);
   public Object visit(Rule_cmdAddFloat rule);
   public Object visit(Rule_cmdAddFloat2addr rule);

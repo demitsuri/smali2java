@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 16:54:48 CET 2013
+ * Produced : Tue Nov 26 17:19:00 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -264,6 +264,9 @@ public class Parser
     else if (rulename.equalsIgnoreCase("DIGIT")) rule = Rule_DIGIT.parse(context);
     else if (rulename.equalsIgnoreCase("HEXDIG")) rule = Rule_HEXDIG.parse(context);
     else if (rulename.equalsIgnoreCase("VCHAR")) rule = Rule_VCHAR.parse(context);
+    else if (rulename.equalsIgnoreCase("DOLLAR")) rule = Rule_DOLLAR.parse(context);
+    else if (rulename.equalsIgnoreCase("PARENTHESES_OPEN")) rule = Rule_PARENTHESES_OPEN.parse(context);
+    else if (rulename.equalsIgnoreCase("PARENTHESES_CLOSE")) rule = Rule_PARENTHESES_CLOSE.parse(context);
     else if (rulename.equalsIgnoreCase("cmdAny")) rule = Rule_cmdAny.parse(context);
     else if (rulename.equalsIgnoreCase("cmdAddFloat")) rule = Rule_cmdAddFloat.parse(context);
     else if (rulename.equalsIgnoreCase("cmdAddFloat2addr")) rule = Rule_cmdAddFloat2addr.parse(context);

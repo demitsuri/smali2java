@@ -16,3 +16,6 @@ ALPHA = %x41-5a / %x61-7a;
 DIGIT = %x30-39;
 HEXDIG = DIGIT / "A" / "B" / "C" / "D" / "E" / "F" ;
 VCHAR = %x21-7e;
+DOLLAR = %x24;
+PARENTHESES_OPEN = %x28;
+PARENTHESES_CLOSE = %x29;

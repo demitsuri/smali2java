@@ -18,7 +18,7 @@ widePadding = 1*(padding / CRLF);
 optWidePadding = [widePadding];
 listSeparator = *padding COMMA *padding;
 escSymbol = ALPHA / DIGIT / SP / %x21 / %x5c %x22 / %x23-2f / %x3a-40 / %x5b / %x5c %x5c / %x5d-60 / %x7b-7e /  %x5C %x27 / %x5c %x6e / %x5c %x72 / %x5c %x74;
-qualifier = (ALPHA / UNDERSCORE / %x24) *(ALPHA / DIGIT / UNDERSCORE / %x24);
+qualifier = (ALPHA / UNDERSCORE / DOLLAR) *(ALPHA / DIGIT / UNDERSCORE / DOLLAR);
 className = %x4c qualifier *(%x2f qualifier) ["$" qualifier] SEMICOLON;
 commentSequence = %x23 *(padding / VCHAR);
 comment = optPadding commentSequence CRLF;
@@ -109,7 +109,7 @@ classField = optPadding dirField padding *(accessMode padding) qualifier COLON t
 #####SMALI METHOD RULES#####
 classMethod = optPadding dirMethod padding *(accessMode padding) (classConstructorName / qualifier) optPadding classMethodProto optPadding CRLF methodBody optPadding dirEndMethod optPadding CRLF;
 classConstructorName = "constructor" padding smaliConstructorName;
-classMethodProto = %x28 *type %x29 type;
+classMethodProto = PARENTHESES_OPEN *type PARENTHESES_CLOSE type;
 methodBody = *skipLine [methodLocals] *skipLine [methodRegisters] *(methodParam / annotation / skipLine) [methodPrologue] *(methodLine / methodPackedSwitch / methodLocal / methodRestart / methodEndLocal / methodCatch / methodCatchAll / cmdAny / label / skipLine);
 
 label = optPadding codeLabel optPadding [commentSequence] CRLF;

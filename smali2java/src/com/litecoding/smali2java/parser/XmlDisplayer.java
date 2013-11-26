@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 16:54:48 CET 2013
+ * Produced : Tue Nov 26 17:19:00 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -1260,6 +1260,42 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</VCHAR>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_DOLLAR rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<DOLLAR>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</DOLLAR>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_PARENTHESES_OPEN rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<PARENTHESES_OPEN>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</PARENTHESES_OPEN>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_PARENTHESES_CLOSE rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<PARENTHESES_CLOSE>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</PARENTHESES_CLOSE>");
     terminal = false;
     return null;
   }
