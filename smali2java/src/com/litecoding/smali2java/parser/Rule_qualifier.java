@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Tue Nov 26 16:48:58 CET 2013
+ * Produced : Tue Nov 26 16:54:48 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -102,6 +102,33 @@ final public class Rule_qualifier extends Rule
                   context.index = s2;
               }
             }
+            if (!parsed)
+            {
+              {
+                ArrayList<Rule> e2 = new ArrayList<Rule>();
+                int s2 = context.index;
+                parsed = true;
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Terminal_NumericValue.parse(context, "%x24", "[\\x24]", 1);
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
+                  }
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                  e1.addAll(e2);
+                else
+                  context.index = s2;
+              }
+            }
             f1 = context.index > g1;
             if (parsed) c1++;
           }
@@ -183,6 +210,33 @@ final public class Rule_qualifier extends Rule
                   for (int i2 = 0; i2 < 1 && f2; i2++)
                   {
                     rule = Rule_UNDERSCORE.parse(context);
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
+                  }
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                  e1.addAll(e2);
+                else
+                  context.index = s2;
+              }
+            }
+            if (!parsed)
+            {
+              {
+                ArrayList<Rule> e2 = new ArrayList<Rule>();
+                int s2 = context.index;
+                parsed = true;
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Terminal_NumericValue.parse(context, "%x24", "[\\x24]", 1);
                     if ((f2 = rule != null))
                     {
                       e2.add(rule);
