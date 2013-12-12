@@ -17,23 +17,24 @@ optPadding = [padding];
 widePadding = 1*(padding / CRLF);
 optWidePadding = [widePadding];
 listSeparator = *padding COMMA *padding;
-escSymbol = ALPHA / DIGIT / SP / %x21 / %x5c %x22 / %x23-2f / %x3a-40 / %x5b / %x5c %x5c / %x5d-60 / %x7b-7e / %x5c %x72 / %x5c %x6e / %x5c %x74;
-qualifier = (ALPHA / UNDERSCORE) *(ALPHA / DIGIT / UNDERSCORE);
+escSymbol = ALPHA / DIGIT / SP / %x21 / %x5c %x22 / %x23-2f / %x3a-40 / %x5b / %x5c %x5c / %x5d-60 / %x7b-7e /  %x5C %x27 / %x5c %x6e / %x5c %x72 / %x5c %x74;
+qualifier = (ALPHA / UNDERSCORE / DOLLAR) *(ALPHA / DIGIT / UNDERSCORE / DOLLAR);
 className = %x4c qualifier *(%x2f qualifier) ["$" qualifier] SEMICOLON;
 commentSequence = %x23 *(padding / VCHAR);
 comment = optPadding commentSequence CRLF;
 emptyLine = optPadding CRLF;
 skipLine = comment / emptyLine;
 fileName = QUOT *(ALPHA / DIGIT) DOT *(ALPHA / DIGIT) QUOT;
-accessMode = "public" / "private" / "protected" / "static" / "final" / "abstract";
+accessMode = "public" / "private" / "protected" / "static" / "final" / "abstract" / "synthetic";
 interfaceMode = "interface";
 type = "V" / "Z" / "B" / "S" / "C" / "I" / "J" / "F" / "D" / className / "[" type;
 boolValue = "true" / "false";
+nullValue = "null";
 intDecValue = [%x2d] 1*DIGIT;
 intHexValue = [%x2d] %x30 %x78 1*HEXDIG;
 intValue = intHexValue / intDecValue;
 strValue = QUOT *escSymbol QUOT;
-value = boolValue / intValue / strValue;
+value = boolValue / intValue / strValue / nullValue;
 codeLabel = COLON qualifier;
 codeRegisterP = "p" intDecValue;
 codeRegisterP64 = "p" intDecValue;
@@ -45,7 +46,9 @@ codeRegister = codeRegisterP / codeRegisterV;
 codeRegister64 = codeRegisterP64 / codeRegisterV64;
 codeRegisterRet = codeRegisterP / codeRegisterV;
 codeRegisterRet64 = codeRegisterP64 / codeRegisterV64;
-codeRegisterGroup = "{" optPadding (codeRegisterP / codeRegisterV) optPadding *(COMMA optPadding (codeRegisterP / codeRegisterV) optPadding) "}";
+codeRegisterGroup = "{" optPadding *(codeRegisterP / codeRegisterV) optPadding *(COMMA optPadding (codeRegisterP / codeRegisterV) optPadding) "}";
+## not sure what this mean 'codeRegisterRange', but it has a different syntax than codeRegisterGroup
+codeRegisterRange = "{" optPadding (codeRegisterP / codeRegisterV) optPadding ".." optPadding (codeRegisterP / codeRegisterV) optPadding "}";
 
 #####SMALI DIRECTIVE RULES#####
 dirAnnotation = ".annotation";
@@ -53,19 +56,22 @@ dirClass = ".class";
 dirEnd = ".end";
 dirEndAnnotation = dirEnd padding "annotation";
 dirEndField = dirEnd padding "field";
+dirEndLocal = dirEnd padding "local";
 dirEndMethod = dirEnd padding "method";
+dirEndPackedSwitch = dirEnd padding "packed-switch";
 dirEndSubannotation = dirEnd padding "subannotation";
 dirImplements = ".implements";
 dirField = ".field";
 dirLocal = ".local";
 dirMethod = ".method";
+dirPackedSwitch = ".packed-switch";
 dirRegisters = ".registers";
 dirSubannotation = ".subannotation";
 dirSuper = ".super";
 dirSource = ".source";
 
 #####SMALI GENERAL RULES#####
-smali = classHeader *(classField / skipLine) *(classMethod / skipLine);
+smali = classHeader *(annotation / skipLine) *(classField / skipLine) *(classMethod / skipLine);
 todoStubLine = *(VCHAR / padding);
 
 #####SMALI HEADER RULES#####
@@ -84,10 +90,19 @@ methodPrologue = optPadding ".prologue" optPadding CRLF;
 methodLine = optPadding ".line" padding intValue optPadding CRLF;
 methodRegisters = optPadding ".registers" padding intValue optPadding CRLF;
 methodLocal = optPadding ".local" padding todoStubLine CRLF;
+methodRestart = optPadding ".restart" padding todoStubLine CRLF;
+methodEndLocal = optPadding dirEndLocal padding todoStubLine CRLF;
+methodCatch = optPadding ".catch" padding smaliTypeRef padding "{" codeLabel padding ".." padding codeLabel "}" padding codeLabel CRLF;
+methodCatchAll = optPadding ".catchall" padding "{" codeLabel padding ".." padding codeLabel "}" padding codeLabel CRLF;
 
 annotation = optPadding dirAnnotation padding annotationVisibility padding className optPadding CRLF [annotationBody] optPadding dirEndAnnotation optPadding CRLF;
 annotationVisibility = "build" / "system" / "runtime";
-annotationBody = optPadding "value" optPadding "=" optWidePadding "{" [optWidePadding strValue optPadding *(COMMA optWidePadding strValue optWidePadding)] optWidePadding "}" optWidePadding;
+annotationBody = *(optPadding qualifier optPadding "=" optPadding ( value / typesGroup / enclosingMethodType) optPadding CRLF);
+typesGroup = "{" [optWidePadding (type / value) optPadding *(COMMA optWidePadding (type / value) optWidePadding)] optWidePadding "}";
+enclosingMethodType = type ["->" qualifier classMethodProto];
+
+methodPackedSwitch = optPadding dirPackedSwitch padding intValue optPadding CRLF [methodPackedSwitchBody] optPadding dirEndPackedSwitch optPadding CRLF;
+methodPackedSwitchBody = *(label);
 
 
 #####SMALI FIELD RULES#####
@@ -96,13 +111,14 @@ classField = optPadding dirField padding *(accessMode padding) qualifier COLON t
 #####SMALI METHOD RULES#####
 classMethod = optPadding dirMethod padding *(accessMode padding) (classConstructorName / qualifier) optPadding classMethodProto optPadding CRLF methodBody optPadding dirEndMethod optPadding CRLF;
 classConstructorName = "constructor" padding smaliConstructorName;
-classMethodProto = %x28 *type %x29 type;
-methodBody = *skipLine [methodLocals] *skipLine [methodRegisters] *(methodParam / annotation / skipLine) [methodPrologue] *(methodLine / methodLocal / cmdAny / label / skipLine);
+classMethodProto = PARENTHESES_OPEN *type PARENTHESES_CLOSE type;
+methodBody = *skipLine [methodLocals] *skipLine [methodRegisters] *(methodParam / annotation / skipLine) [methodPrologue] *(methodLine / methodPackedSwitch / methodLocal / methodRestart / methodEndLocal / methodCatch / methodCatchAll / cmdAny / label / skipLine);
 
 label = optPadding codeLabel optPadding [commentSequence] CRLF;
 
 smaliConstructorName = ("<init>" / "<clinit>");
 smaliClassRef = className;
+smaliTypeRef = type;
 smaliFieldRef = className "->" qualifier COLON type;
 smaliMethodRef = className "->" (smaliConstructorName / qualifier) classMethodProto;
 

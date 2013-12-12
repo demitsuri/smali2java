@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 20:41:19 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -100,6 +100,11 @@ public class Displayer implements Visitor
     return visitRules(rule.rules);
   }
 
+  public Object visit(Rule_nullValue rule)
+  {
+    return visitRules(rule.rules);
+  }
+
   public Object visit(Rule_intDecValue rule)
   {
     return visitRules(rule.rules);
@@ -185,6 +190,11 @@ public class Displayer implements Visitor
     return visitRules(rule.rules);
   }
 
+  public Object visit(Rule_codeRegisterRange rule)
+  {
+    return visitRules(rule.rules);
+  }
+
   public Object visit(Rule_dirAnnotation rule)
   {
     return visitRules(rule.rules);
@@ -210,7 +220,17 @@ public class Displayer implements Visitor
     return visitRules(rule.rules);
   }
 
+  public Object visit(Rule_dirEndLocal rule)
+  {
+    return visitRules(rule.rules);
+  }
+
   public Object visit(Rule_dirEndMethod rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_dirEndPackedSwitch rule)
   {
     return visitRules(rule.rules);
   }
@@ -236,6 +256,11 @@ public class Displayer implements Visitor
   }
 
   public Object visit(Rule_dirMethod rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_dirPackedSwitch rule)
   {
     return visitRules(rule.rules);
   }
@@ -325,6 +350,26 @@ public class Displayer implements Visitor
     return visitRules(rule.rules);
   }
 
+  public Object visit(Rule_methodRestart rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_methodEndLocal rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_methodCatch rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_methodCatchAll rule)
+  {
+    return visitRules(rule.rules);
+  }
+
   public Object visit(Rule_annotation rule)
   {
     return visitRules(rule.rules);
@@ -336,6 +381,26 @@ public class Displayer implements Visitor
   }
 
   public Object visit(Rule_annotationBody rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_typesGroup rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_enclosingMethodType rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_methodPackedSwitch rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_methodPackedSwitchBody rule)
   {
     return visitRules(rule.rules);
   }
@@ -376,6 +441,11 @@ public class Displayer implements Visitor
   }
 
   public Object visit(Rule_smaliClassRef rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_smaliTypeRef rule)
   {
     return visitRules(rule.rules);
   }
@@ -471,6 +541,21 @@ public class Displayer implements Visitor
   }
 
   public Object visit(Rule_VCHAR rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_DOLLAR rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_PARENTHESES_OPEN rule)
+  {
+    return visitRules(rule.rules);
+  }
+
+  public Object visit(Rule_PARENTHESES_CLOSE rule)
   {
     return visitRules(rule.rules);
   }

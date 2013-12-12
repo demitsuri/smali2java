@@ -173,6 +173,12 @@ public abstract class BasicSmaliBuilder extends BasicTextBuilder {
 	}
 
 	@Override
+	public Object visit(Rule_nullValue rule)
+	{
+		return rule.spelling;
+	}
+
+	@Override
 	public Object visit(Rule_intValue rule) {
 		return rule.spelling;
 	}

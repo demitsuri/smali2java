@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 20:41:19 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -43,99 +43,9 @@ final public class Rule_annotationBody extends Rule
         if (parsed)
         {
           boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Rule_optPadding.parse(context);
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Terminal_StringValue.parse(context, "value");
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Rule_optPadding.parse(context);
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Terminal_StringValue.parse(context, "=");
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Rule_optWidePadding.parse(context);
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Terminal_StringValue.parse(context, "{");
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
           @SuppressWarnings("unused")
           int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
+          while (f1)
           {
             int g1 = context.index;
             parsed = false;
@@ -151,7 +61,7 @@ final public class Rule_annotationBody extends Rule
                   int c2 = 0;
                   for (int i2 = 0; i2 < 1 && f2; i2++)
                   {
-                    rule = Rule_optWidePadding.parse(context);
+                    rule = Rule_optPadding.parse(context);
                     if ((f2 = rule != null))
                     {
                       e2.add(rule);
@@ -166,7 +76,7 @@ final public class Rule_annotationBody extends Rule
                   int c2 = 0;
                   for (int i2 = 0; i2 < 1 && f2; i2++)
                   {
-                    rule = Rule_strValue.parse(context);
+                    rule = Rule_qualifier.parse(context);
                     if ((f2 = rule != null))
                     {
                       e2.add(rule);
@@ -193,9 +103,38 @@ final public class Rule_annotationBody extends Rule
                 if (parsed)
                 {
                   boolean f2 = true;
-                  @SuppressWarnings("unused")
                   int c2 = 0;
-                  while (f2)
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Terminal_StringValue.parse(context, "=");
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
+                  }
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Rule_optPadding.parse(context);
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
+                  }
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
                   {
                     int g2 = context.index;
                     parsed = false;
@@ -211,7 +150,7 @@ final public class Rule_annotationBody extends Rule
                           int c3 = 0;
                           for (int i3 = 0; i3 < 1 && f3; i3++)
                           {
-                            rule = Rule_COMMA.parse(context);
+                            rule = Rule_value.parse(context);
                             if ((f3 = rule != null))
                             {
                               e3.add(rule);
@@ -221,12 +160,24 @@ final public class Rule_annotationBody extends Rule
                           parsed = c3 == 1;
                         }
                         if (parsed)
+                          e2.addAll(e3);
+                        else
+                          context.index = s3;
+                      }
+                    }
+                    if (!parsed)
+                    {
+                      {
+                        ArrayList<Rule> e3 = new ArrayList<Rule>();
+                        int s3 = context.index;
+                        parsed = true;
+                        if (parsed)
                         {
                           boolean f3 = true;
                           int c3 = 0;
                           for (int i3 = 0; i3 < 1 && f3; i3++)
                           {
-                            rule = Rule_optWidePadding.parse(context);
+                            rule = Rule_typesGroup.parse(context);
                             if ((f3 = rule != null))
                             {
                               e3.add(rule);
@@ -236,27 +187,24 @@ final public class Rule_annotationBody extends Rule
                           parsed = c3 == 1;
                         }
                         if (parsed)
-                        {
-                          boolean f3 = true;
-                          int c3 = 0;
-                          for (int i3 = 0; i3 < 1 && f3; i3++)
-                          {
-                            rule = Rule_strValue.parse(context);
-                            if ((f3 = rule != null))
-                            {
-                              e3.add(rule);
-                              c3++;
-                            }
-                          }
-                          parsed = c3 == 1;
-                        }
+                          e2.addAll(e3);
+                        else
+                          context.index = s3;
+                      }
+                    }
+                    if (!parsed)
+                    {
+                      {
+                        ArrayList<Rule> e3 = new ArrayList<Rule>();
+                        int s3 = context.index;
+                        parsed = true;
                         if (parsed)
                         {
                           boolean f3 = true;
                           int c3 = 0;
                           for (int i3 = 0; i3 < 1 && f3; i3++)
                           {
-                            rule = Rule_optWidePadding.parse(context);
+                            rule = Rule_enclosingMethodType.parse(context);
                             if ((f3 = rule != null))
                             {
                               e3.add(rule);
@@ -274,7 +222,37 @@ final public class Rule_annotationBody extends Rule
                     f2 = context.index > g2;
                     if (parsed) c2++;
                   }
-                  parsed = true;
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Rule_optPadding.parse(context);
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
+                  }
+                  parsed = c2 == 1;
+                }
+                if (parsed)
+                {
+                  boolean f2 = true;
+                  int c2 = 0;
+                  for (int i2 = 0; i2 < 1 && f2; i2++)
+                  {
+                    rule = Rule_CRLF.parse(context);
+                    if ((f2 = rule != null))
+                    {
+                      e2.add(rule);
+                      c2++;
+                    }
+                  }
+                  parsed = c2 == 1;
                 }
                 if (parsed)
                   e1.addAll(e2);
@@ -286,51 +264,6 @@ final public class Rule_annotationBody extends Rule
             if (parsed) c1++;
           }
           parsed = true;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Rule_optWidePadding.parse(context);
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Terminal_StringValue.parse(context, "}");
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
-        }
-        if (parsed)
-        {
-          boolean f1 = true;
-          int c1 = 0;
-          for (int i1 = 0; i1 < 1 && f1; i1++)
-          {
-            rule = Rule_optWidePadding.parse(context);
-            if ((f1 = rule != null))
-            {
-              e1.add(rule);
-              c1++;
-            }
-          }
-          parsed = c1 == 1;
         }
         if (parsed)
           e0.addAll(e1);

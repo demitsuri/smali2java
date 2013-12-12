@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 20:41:19 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -91,7 +91,7 @@ final public class Rule_cmdAgetObject extends Rule
           int c1 = 0;
           for (int i1 = 0; i1 < 1 && f1; i1++)
           {
-            rule = Rule_codeRegisterVDst.parse(context);
+            rule = Rule_codeRegister.parse(context);
             if ((f1 = rule != null))
             {
               e1.add(rule);

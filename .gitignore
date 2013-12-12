@@ -5,9 +5,12 @@
 *.ear
 
 .idea
+.gradle
 *.iml
 
 *.log
 
 /.metadata
 /smali2java/bin
+/smali2java/build
+/smali-abnf/parser

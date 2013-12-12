@@ -12,6 +12,31 @@ import com.litecoding.smali2java.entity.smali.SmaliMethod;
 import com.litecoding.smali2java.parser.*;
 
 public class SmaliClassBuilder extends BasicCommandsBuilder {
+
+	@Override
+	public Object visit(Rule_codeRegisterRange rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_dirEndLocal rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_dirEndPackedSwitch rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_dirPackedSwitch rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
 	@Override
 	public Object visit(Rule_smali rule) {
 		smaliClass = new SmaliClass();
@@ -249,6 +274,12 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 	}
 
 	@Override
+	public Object visit(Rule_smaliTypeRef rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
 	public Object visit(Rule_methodLocals rule) {		
 		for(Rule innerRule : rule.rules) {
 			if(innerRule instanceof Rule_intValue)
@@ -297,5 +328,53 @@ public class SmaliClassBuilder extends BasicCommandsBuilder {
 	public Object visit(Rule_methodLocal rule) {
 		return rule.spelling;
 	}
-		
+
+	@Override
+	public Object visit(Rule_methodRestart rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_methodEndLocal rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_methodCatch rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_methodCatchAll rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_typesGroup rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_enclosingMethodType rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_methodPackedSwitch rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
+	@Override
+	public Object visit(Rule_methodPackedSwitchBody rule)
+	{
+		throw new UnsupportedOperationException("Not yet implemented!");
+	}
+
 }

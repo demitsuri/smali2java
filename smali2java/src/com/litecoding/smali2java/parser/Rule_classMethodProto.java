@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 20:41:19 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -46,7 +46,7 @@ final public class Rule_classMethodProto extends Rule
           int c1 = 0;
           for (int i1 = 0; i1 < 1 && f1; i1++)
           {
-            rule = Terminal_NumericValue.parse(context, "%x28", "[\\x28]", 1);
+            rule = Rule_PARENTHESES_OPEN.parse(context);
             if ((f1 = rule != null))
             {
               e1.add(rule);
@@ -77,7 +77,7 @@ final public class Rule_classMethodProto extends Rule
           int c1 = 0;
           for (int i1 = 0; i1 < 1 && f1; i1++)
           {
-            rule = Terminal_NumericValue.parse(context, "%x29", "[\\x29]", 1);
+            rule = Rule_PARENTHESES_CLOSE.parse(context);
             if ((f1 = rule != null))
             {
               e1.add(rule);

@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 20:41:19 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -29,6 +29,7 @@ public interface Visitor
   public Object visit(Rule_interfaceMode rule);
   public Object visit(Rule_type rule);
   public Object visit(Rule_boolValue rule);
+  public Object visit(Rule_nullValue rule);
   public Object visit(Rule_intDecValue rule);
   public Object visit(Rule_intHexValue rule);
   public Object visit(Rule_intValue rule);
@@ -46,17 +47,21 @@ public interface Visitor
   public Object visit(Rule_codeRegisterRet rule);
   public Object visit(Rule_codeRegisterRet64 rule);
   public Object visit(Rule_codeRegisterGroup rule);
+  public Object visit(Rule_codeRegisterRange rule);
   public Object visit(Rule_dirAnnotation rule);
   public Object visit(Rule_dirClass rule);
   public Object visit(Rule_dirEnd rule);
   public Object visit(Rule_dirEndAnnotation rule);
   public Object visit(Rule_dirEndField rule);
+  public Object visit(Rule_dirEndLocal rule);
   public Object visit(Rule_dirEndMethod rule);
+  public Object visit(Rule_dirEndPackedSwitch rule);
   public Object visit(Rule_dirEndSubannotation rule);
   public Object visit(Rule_dirImplements rule);
   public Object visit(Rule_dirField rule);
   public Object visit(Rule_dirLocal rule);
   public Object visit(Rule_dirMethod rule);
+  public Object visit(Rule_dirPackedSwitch rule);
   public Object visit(Rule_dirRegisters rule);
   public Object visit(Rule_dirSubannotation rule);
   public Object visit(Rule_dirSuper rule);
@@ -74,9 +79,17 @@ public interface Visitor
   public Object visit(Rule_methodLine rule);
   public Object visit(Rule_methodRegisters rule);
   public Object visit(Rule_methodLocal rule);
+  public Object visit(Rule_methodRestart rule);
+  public Object visit(Rule_methodEndLocal rule);
+  public Object visit(Rule_methodCatch rule);
+  public Object visit(Rule_methodCatchAll rule);
   public Object visit(Rule_annotation rule);
   public Object visit(Rule_annotationVisibility rule);
   public Object visit(Rule_annotationBody rule);
+  public Object visit(Rule_typesGroup rule);
+  public Object visit(Rule_enclosingMethodType rule);
+  public Object visit(Rule_methodPackedSwitch rule);
+  public Object visit(Rule_methodPackedSwitchBody rule);
   public Object visit(Rule_classField rule);
   public Object visit(Rule_classMethod rule);
   public Object visit(Rule_classConstructorName rule);
@@ -85,6 +98,7 @@ public interface Visitor
   public Object visit(Rule_label rule);
   public Object visit(Rule_smaliConstructorName rule);
   public Object visit(Rule_smaliClassRef rule);
+  public Object visit(Rule_smaliTypeRef rule);
   public Object visit(Rule_smaliFieldRef rule);
   public Object visit(Rule_smaliMethodRef rule);
   public Object visit(Rule_HTAB rule);
@@ -104,6 +118,9 @@ public interface Visitor
   public Object visit(Rule_DIGIT rule);
   public Object visit(Rule_HEXDIG rule);
   public Object visit(Rule_VCHAR rule);
+  public Object visit(Rule_DOLLAR rule);
+  public Object visit(Rule_PARENTHESES_OPEN rule);
+  public Object visit(Rule_PARENTHESES_CLOSE rule);
   public Object visit(Rule_cmdAny rule);
   public Object visit(Rule_cmdAddFloat rule);
   public Object visit(Rule_cmdAddFloat2addr rule);

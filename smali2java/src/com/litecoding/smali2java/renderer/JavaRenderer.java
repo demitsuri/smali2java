@@ -1,23 +1,17 @@
 package com.litecoding.smali2java.renderer;
 
+import com.litecoding.smali2java.entity.java.Comment;
+import com.litecoding.smali2java.entity.java.MethodCall;
+import com.litecoding.smali2java.entity.java.Renderable;
+import com.litecoding.smali2java.entity.java.Variable;
+import com.litecoding.smali2java.entity.smali.*;
+import com.litecoding.smali2java.renderer.SmaliRenderer.SmaliBlock;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import com.litecoding.smali2java.entity.java.Comment;
-import com.litecoding.smali2java.entity.java.MethodCall;
-import com.litecoding.smali2java.entity.java.Renderable;
-import com.litecoding.smali2java.entity.java.Variable;
-import com.litecoding.smali2java.entity.smali.Instruction;
-import com.litecoding.smali2java.entity.smali.MethodRef;
-import com.litecoding.smali2java.entity.smali.Register;
-import com.litecoding.smali2java.entity.smali.RegisterGroup;
-import com.litecoding.smali2java.entity.smali.SmaliClass;
-import com.litecoding.smali2java.entity.smali.SmaliCodeEntity;
-import com.litecoding.smali2java.entity.smali.SmaliMethod;
-import com.litecoding.smali2java.renderer.SmaliRenderer.SmaliBlock;
 
 public class JavaRenderer {
 	public static List<Renderable> generateJavaEntities(SmaliMethod smaliMethod) {

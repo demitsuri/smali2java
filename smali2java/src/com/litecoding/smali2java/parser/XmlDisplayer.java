@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  *
  * Producer : com.parse2.aparse.Parser 2.3
- * Produced : Fri Apr 12 10:40:21 MUT 2013
+ * Produced : Tue Nov 26 20:41:19 CET 2013
  *
  * -----------------------------------------------------------------------------
  */
@@ -220,6 +220,18 @@ public class XmlDisplayer implements Visitor
     return null;
   }
 
+  public Object visit(Rule_nullValue rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<nullValue>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</nullValue>");
+    terminal = false;
+    return null;
+  }
+
   public Object visit(Rule_intDecValue rule)
   {
     if (!terminal) System.out.println();
@@ -424,6 +436,18 @@ public class XmlDisplayer implements Visitor
     return null;
   }
 
+  public Object visit(Rule_codeRegisterRange rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<codeRegisterRange>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</codeRegisterRange>");
+    terminal = false;
+    return null;
+  }
+
   public Object visit(Rule_dirAnnotation rule)
   {
     if (!terminal) System.out.println();
@@ -484,6 +508,18 @@ public class XmlDisplayer implements Visitor
     return null;
   }
 
+  public Object visit(Rule_dirEndLocal rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<dirEndLocal>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</dirEndLocal>");
+    terminal = false;
+    return null;
+  }
+
   public Object visit(Rule_dirEndMethod rule)
   {
     if (!terminal) System.out.println();
@@ -492,6 +528,18 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</dirEndMethod>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_dirEndPackedSwitch rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<dirEndPackedSwitch>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</dirEndPackedSwitch>");
     terminal = false;
     return null;
   }
@@ -552,6 +600,18 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</dirMethod>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_dirPackedSwitch rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<dirPackedSwitch>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</dirPackedSwitch>");
     terminal = false;
     return null;
   }
@@ -760,6 +820,54 @@ public class XmlDisplayer implements Visitor
     return null;
   }
 
+  public Object visit(Rule_methodRestart rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodRestart>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodRestart>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodEndLocal rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodEndLocal>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodEndLocal>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodCatch rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodCatch>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodCatch>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodCatchAll rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodCatchAll>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodCatchAll>");
+    terminal = false;
+    return null;
+  }
+
   public Object visit(Rule_annotation rule)
   {
     if (!terminal) System.out.println();
@@ -792,6 +900,54 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</annotationBody>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_typesGroup rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<typesGroup>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</typesGroup>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_enclosingMethodType rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<enclosingMethodType>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</enclosingMethodType>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodPackedSwitch rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodPackedSwitch>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodPackedSwitch>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_methodPackedSwitchBody rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<methodPackedSwitchBody>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</methodPackedSwitchBody>");
     terminal = false;
     return null;
   }
@@ -888,6 +1044,18 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</smaliClassRef>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_smaliTypeRef rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<smaliTypeRef>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</smaliTypeRef>");
     terminal = false;
     return null;
   }
@@ -1116,6 +1284,42 @@ public class XmlDisplayer implements Visitor
     visitRules(rule.rules);
     if (!terminal) System.out.println();
     System.out.print("</VCHAR>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_DOLLAR rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<DOLLAR>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</DOLLAR>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_PARENTHESES_OPEN rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<PARENTHESES_OPEN>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</PARENTHESES_OPEN>");
+    terminal = false;
+    return null;
+  }
+
+  public Object visit(Rule_PARENTHESES_CLOSE rule)
+  {
+    if (!terminal) System.out.println();
+    System.out.print("<PARENTHESES_CLOSE>");
+    terminal = false;
+    visitRules(rule.rules);
+    if (!terminal) System.out.println();
+    System.out.print("</PARENTHESES_CLOSE>");
     terminal = false;
     return null;
   }
