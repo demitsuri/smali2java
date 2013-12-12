@@ -1,6 +1,15 @@
 apply plugin: 'java'
 apply plugin: 'fatjar'
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.sun.codemodel', name: 'codemodel', version: '2.6'
+}
+
 buildscript {
     repositories {
         mavenLocal()
